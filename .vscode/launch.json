@@ -29,11 +29,17 @@
             ]
         },
         {
-            "name": "Python Debugger: Current File (Integrated Terminal)",
+            "name": "Python: pytest",
             "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
+            "module": "pytest",
+            "args": [
+                "${file}", // Path to your main.py script
+                "--disable-warnings", // Optional: Suppress pytest warnings
+                "-s"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

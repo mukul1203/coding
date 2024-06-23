@@ -7,10 +7,10 @@ def parity(num):
     while num:
         ret = ret ^ (num & 0x1)
         num >>= 1
-    ret
+    return ret
 
 # Test cases
-def test_parity():
+def testing_parity():
     assert parity(7) == 1
     assert parity(3) == 0
 
