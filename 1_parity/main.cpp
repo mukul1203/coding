@@ -34,21 +34,11 @@ namespace v2
     }
 }
 
-namespace mukul = v1;
+namespace mukul = v2;
 
+// main() is in catch_amalgamated.cpp, you must only write test cases here. main() here won't work.
 TEST_CASE("Parity check", "[parity]")
 {
     REQUIRE(mukul::parity(7) == 1);
-    REQUIRE(mukul::parity(3) == 1);
+    REQUIRE(mukul::parity(3) == 0);
 }
-
-// int main()
-// {
-//     int x = 7;
-//     cout << "parity of " << x << " i.e. " << hex << x << " is " << mukul::parity(x) << endl;
-//     for (int i = 0; i < 1000; ++i)
-//     {
-//         assert(v1::parity(i) == mukul::parity(i));
-//     }
-//     return 0;
-// }

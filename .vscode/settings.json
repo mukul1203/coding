@@ -1,7 +1,8 @@
 {
+    "files.autoSave": "off",
     "editor.formatOnSave": true,
     "triggerTaskOnSave.tasks": {
-        "C/C++: g++ build active file": [
+        "Build and Run": [
             "*.cpp", // <-- Glob pattern to specify which files should trigger the task
         ],
     }
