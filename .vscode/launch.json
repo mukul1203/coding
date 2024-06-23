@@ -27,7 +27,19 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "Python: pytest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "${file}", // Path to your main.py script
+                "--disable-warnings", // Optional: Suppress pytest warnings
+                "-s"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
-
     ]
 }

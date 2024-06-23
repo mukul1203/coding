@@ -6,7 +6,8 @@
 		"ms-vscode.cpptools-extension-pack",
 		"ms-vscode.cpptools",
 		"ms-vscode.cpptools-themes",
-		"Gruntfuggly.triggertaskonsave"
+		"Gruntfuggly.triggertaskonsave",
+		"ms-python.python"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": []

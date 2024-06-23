@@ -3,11 +3,11 @@
         //TODO: separate build and run tasks
         {
             "type": "cppbuild",
-            "label": "Build and Run",
+            "label": "CPP Build and Run",
             "command": "make",
             "args": [
                 "-f",
-                "../Makefile",
+                "../make_files/cpp/Makefile",
                 "run"
             ],
             "options": {
@@ -18,9 +18,30 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": "*.cpp"
             },
             "detail": "Build main.cpp using make and run it."
+        },
+        {
+            "type": "process",
+            "label": "PYTHON Run",
+            "command": "make",
+            "args": [
+                "-f",
+                "../make_files/python/Makefile",
+                "run"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": "*.py"
+            },
+            "detail": "Build main.py using make and run it."
         }
     ],
     "version": "2.0.0"
