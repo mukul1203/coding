@@ -4,9 +4,12 @@
     // Following two are for that purpose.
     "files.autoSave": "off",
     "triggerTaskOnSave.tasks": {
-        "Build and Run": [
+        "CPP Build and Run": [
             "*.cpp", // <-- Glob pattern to specify which files should trigger the task
         ],
+        "PYTHON Run": [
+            "*.py"
+        ]
     },
     "editor.formatOnSave": true,
 }

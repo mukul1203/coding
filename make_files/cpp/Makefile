@@ -46,4 +46,4 @@ clean:
 	rm -rf $(OBJDIR)
 
 # Phony targets
-.PHONY: all clean
+.PHONY: all run clean
