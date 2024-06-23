@@ -1,9 +1,12 @@
 {
+    // If you want to "Build and Run" on save, you may disable autosave (as it trigger way too often), 
+    // and set "Build and Run" task to run on save using the TaskOnSave extension.
+    // Following two are for that purpose.
     "files.autoSave": "off",
-    "editor.formatOnSave": true,
     "triggerTaskOnSave.tasks": {
         "Build and Run": [
             "*.cpp", // <-- Glob pattern to specify which files should trigger the task
         ],
-    }
+    },
+    "editor.formatOnSave": true,
 }

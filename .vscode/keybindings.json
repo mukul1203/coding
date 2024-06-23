@@ -1,0 +1,8 @@
+[
+    // TODO: this is not working. Figure out why.
+    {
+        "key": "ctrl+shift+y",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Build and Run"
+    }
+]

@@ -1,5 +1,6 @@
 {
     "tasks": [
+        //TODO: separate build and run tasks
         {
             "type": "cppbuild",
             "label": "Build and Run",
