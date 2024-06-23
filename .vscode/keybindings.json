@@ -3,6 +3,7 @@
     {
         "key": "ctrl+shift+y",
         "command": "workbench.action.tasks.runTask",
-        "args": "Build and Run"
+        "args": "Build and Run",
+        "when": "resourceLangId == cpp"
     }
 ]

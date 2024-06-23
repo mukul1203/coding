@@ -29,7 +29,7 @@ $(TARGET): $(OBJS)
 $(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Rule to compile source files in src directory
+# Rule to compile test framework source files into object files
 $(OBJDIR)/%.o: $(TEST_FRAMEWORK_DIR)/%.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
