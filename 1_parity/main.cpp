@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Brute force
 namespace v1
 {
     template <typename T>
@@ -19,6 +20,7 @@ namespace v1
     }
 }
 
+// Optimized, only traversing the ON bits
 namespace v2
 {
     template <typename T>
@@ -32,6 +34,12 @@ namespace v2
         }
         return ret;
     }
+}
+
+// For large number of 64 bit words, how to calculate parity?
+// Approach 1: 
+namespace v3 {
+
 }
 
 namespace mukul = v2;
