@@ -12,4 +12,7 @@
         ]
     },
     "editor.formatOnSave": true,
+    "files.associations": {
+        "optional": "cpp"
+    },
 }
