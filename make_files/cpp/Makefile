@@ -2,7 +2,7 @@
 CXX = g++
 
 # Compiler flags
-CXXFLAGS = -Wall -Wextra -std=c++17 -fdiagnostics-color=always -g
+CXXFLAGS = -Wall -Wextra -std=c++2a -fdiagnostics-color=always -g
 
 TEST_FRAMEWORK_DIR = ../test_framework
 
