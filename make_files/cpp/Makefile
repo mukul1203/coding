@@ -39,7 +39,7 @@ $(OBJDIR):
 
 # Run
 run: $(TARGET)
-	./$(TARGET)
+	./$(TARGET) --success --colour-mode ansi --verbosity high
 
 # Clean rule
 clean:
