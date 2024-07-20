@@ -1,10 +1,15 @@
 # Compiler
 CXX = g++
 
-# Compiler flags
-CXXFLAGS = -Wall -Wextra -std=c++2a -fdiagnostics-color=always -g
+# Includes
+INCLUDE = ../include
 
-TEST_FRAMEWORK_DIR = ../test_framework
+# Compiler flags
+# -DFMT_HEADER_ONLY to use fmt library in header only mode
+CXXFLAGS = -Wall -Wextra -std=c++2a -fdiagnostics-color=always -g -I $(INCLUDE) -DFMT_HEADER_ONLY
+
+# cpp for test framework resides in include for now, may separate out later
+TEST_FRAMEWORK_DIR = $(INCLUDE)/test_framework
 
 # Source files
 SRCS = main.cpp $(TEST_FRAMEWORK_DIR)/catch_amalgamated.cpp
