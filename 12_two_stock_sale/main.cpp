@@ -118,8 +118,8 @@ TEST_CASE("maximum profit", "[max_profit]")
     REQUIRE(max_profit({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) == result_t{9, 0, 9, 9, 9});
 
     std::vector<int> v{12, 11, 13, 9, 12, 8, 14, 13, 15, 17};
-    // INFO("Vector is " << fmt::format("{}", fmt::join(v, ", ")));
-    // REQUIRE(max_profit(v) == brute_max_profit(v));
+    INFO("Vector is " << fmt::format("{}", fmt::join(v, ", ")));
+    REQUIRE(max_profit(v) == brute_max_profit(v));
 
     int i = 0;
     while (i++ < 101)
