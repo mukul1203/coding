@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "../test_framework/catch_amalgamated.hpp"
+#include "test_framework/catch_amalgamated.hpp"
 
 using namespace std;
 
@@ -37,8 +37,9 @@ namespace v2
 }
 
 // For large number of 64 bit words, how to calculate parity?
-// Approach 1: 
-namespace v3 {
+// Approach 1:
+namespace v3
+{
 
 }
 

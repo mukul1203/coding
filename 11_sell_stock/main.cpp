@@ -1,4 +1,4 @@
-#include "../test_framework/catch_amalgamated.hpp"
+#include "test_framework/catch_amalgamated.hpp"
 #include <vector>
 
 std::tuple<int, int, int> max_profit(const std::vector<int> &v)

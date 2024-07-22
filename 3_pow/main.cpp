@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "../test_framework/catch_amalgamated.hpp"
+#include "test_framework/catch_amalgamated.hpp"
 
 namespace v1
 {

@@ -1,4 +1,4 @@
-#include "../test_framework/catch_amalgamated.hpp"
+#include "test_framework/catch_amalgamated.hpp"
 #include <vector>
 
 int deduplicate(std::vector<int> &v)
