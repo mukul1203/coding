@@ -28,7 +28,7 @@ all: $(TARGET)
 
 # Rule to link the executable
 $(TARGET): $(OBJS)
-	$(CXX) $(OBJS) -o $(TARGET)
+	$(CXX) $(OBJS) -pthread -o $(TARGET)
 
 # Rule to compile source files into object files
 $(OBJDIR)/%.o: %.cpp | $(OBJDIR)
