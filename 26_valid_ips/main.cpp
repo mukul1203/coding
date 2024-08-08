@@ -2,72 +2,65 @@
 #include <deque>
 #include <string>
 #include <optional>
-#include <string_view>
 using namespace std;
 
-void put_dots(string &s, deque<int> &dots)
+int strtoi(const string &s, int start, int end)
 {
-    int i = s.size() - 1;
-    s.resize(s.size() + dots.size());
-    int j = s.size() - 1;
-    while (i != j)
+    int res = 0;
+    for (int i = start; i < end; ++i)
     {
-        s[j--] = s[i];
-        if (i == dots.back())
-        {
-            s[j] = '.';
-        }
-        --i;
+        res = res * 10 + (s[i] - '0');
     }
+    return res;
 }
-using junctions_t = deque<int>;
 
-optional<vector<junctions_t>> split(const string_view &s, int n)
+vector<vector<int>> valid_ip_dots(const string &s, int start, int end, int k)
 {
-    if (s.empty() || (n == 0 && stoi(string(s)) > 255))
-        return nullopt;
-
-    // starting from begin + 1, put a dot at each position and recursively ask for n - 1 remaining dots
-    vector<junctions_t> result;
-    for (auto iter = s.begin() + 1; iter != s.end(); ++iter)
+    int n = end - start;
+    int digits = n / (k + 1);
+    if (digits == 0 || digits > 3)
+        return {};
+    if (k == 0)
     {
-        auto cur_idx = iter - s.begin();
-        if (auto all_junctions = split(string_view(s.data() + (iter - s.begin()), s.end() - iter), n - 1))
-        {
-            for (auto &j : *all_junctions)
-            {
-                junctions_t cur;
-                cur.push_back(cur_idx);
-                for (auto &idx : j)
-                    cur.push_back(idx + cur_idx);
-                result.push_back(std::move(cur));
-            }
-        }
+        if (strtoi(s, start, end) > 255)
+            return {};
+        return {{-1}};
     }
-    return result;
+    vector<vector<int>> res;
+    for (int i = end - 2; i >= end - 4; --i) // run three times only, as we have only three places to put a dot and then recurse
+    {
+        if ((i < end - 2 && s[i + 1] == '0') || strtoi(s, i + 1, end) > 255)
+            continue;
+        auto v = valid_ip_dots(s, start, i + 1, k - 1);
+        for (auto &x : v)
+            x.push_back(i);
+        move(v.begin(), v.end(), back_inserter(res));
+    }
+    return res;
 }
 
 vector<string> valid_ips(const string &s)
 {
     vector<string> res;
-    if (auto junctions = split(string_view(s.data(), s.size()), 3))
-    {
-        for (auto &j : *junctions)
-        {
-            string s;
-            put_dots(s, j);
-            res.emplace_back(std::move(s));
+    auto v = valid_ip_dots(s, 0, s.size(), 3);
+    transform(v.begin(), v.end(), back_inserter(res), [&](auto &dots)
+              {
+        int j = 1; //index in dots, ignore 0th, which is -1
+        string dotted;
+        for(int i = 0; i < s.size(); ++i) {
+            dotted.push_back(s[i]);
+            if(dots[j] == i) {dotted.push_back('.'); ++j;
+            }
         }
-    }
+        return dotted; });
     return res;
 }
-
 #include "formatting/include_all.hpp"
 #include "test_framework/catch_amalgamated.hpp"
 
 TEST_CASE("valid ips")
 {
-    auto ips = valid_ips("19216811");
+    auto ips = valid_ips("19216810");
     // std::sort(ips.begin(), ips.end());
     fmt::print("IPs are {}", ips);
 }
