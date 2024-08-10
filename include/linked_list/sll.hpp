@@ -6,7 +6,7 @@ struct node
 {
     T val;
     node_ptr<T> next;
-    node() = defaul;
+    node() = default;
     node(T v) : val(std::move(v)) {}
 };
 
