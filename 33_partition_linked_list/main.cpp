@@ -4,26 +4,19 @@
 template <typename T>
 node_ptr<T> partition(node_ptr<T> head, std::function<bool(const T &)> pred)
 {
-    auto h1 = head, h2 = head, iter = head;
-    if (pred(head->val))
+    node_ptr<T> h1 = nullptr, h2 = nullptr, iter = head;
+    while (iter && (!h1 || !h2))
     {
-        h1 = head;
-        while (h2 && pred(h2->val))
-            h2 = h2->next;
-        iter = h2;
-    }
-    else
-    {
-        h2 = head;
-        while (h1 && !pred(h1->val))
-            h1 = h1->next;
-        iter = h1;
+        if (!h1 && pred(iter->val))
+            h1 = iter;
+        else if (!h2 && !pred(iter->val))
+            h2 = iter;
+        iter = iter->next;
     }
     // now, h1 points to first node with true predicate, and h2 to first node with false predicate
-    if (!iter)
+    if (!h1 || !h2)
         return head; // means there are only one type of nodes, so already paritioned
     auto t1 = h1, t2 = h2;
-    iter = iter->next;
     while (iter)
     {
         if (pred(iter->val))
