@@ -6,6 +6,7 @@
 template <typename T>
 struct node;
 
+// TODO: it could be a unique_ptr
 template <typename T>
 using node_ptr = std::shared_ptr<node<T>>;
 
@@ -48,4 +49,18 @@ std::vector<T> to_vector(node_ptr<T> root)
         Q.pop();
     }
     return v;
+}
+
+template <typename T>
+std::optional<node_ptr<T>> find(const node_ptr<T> &root, const T &val)
+{
+    if (!root)
+        return std::nullopt;
+    if (root->val == val)
+        return root;
+    if (auto l = find(root->left, val))
+        return l;
+    if (auto r = find(root->right, val))
+        return r;
+    return std::nullopt;
 }
