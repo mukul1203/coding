@@ -1,5 +1,7 @@
 #include "linked_list/dll.hpp"
 
+using namespace dll;
+
 // assumes node to be that of doubly linked list, with next and prev
 template <typename T>
 node_ptr<T> merge(node_ptr<T> &head1, node_ptr<T> &head2)

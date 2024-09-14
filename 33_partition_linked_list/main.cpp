@@ -1,6 +1,8 @@
 #include "linked_list/sll.hpp"
 #include <functional>
 
+using namespace sll;
+
 template <typename T>
 node_ptr<T> partition(node_ptr<T> head, std::function<bool(const T &)> pred)
 {

@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <exception>
 
+using namespace tree;
+
 template <typename T>
 node_ptr<T> make_binary_tree_from_pre_post_order(const std::vector<T> &pre, int i, int j, const std::vector<T> &post, int k, int l)
 {

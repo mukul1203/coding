@@ -3,64 +3,67 @@
 #include <vector>
 #include <queue>
 
-template <typename T>
-struct node;
-
-// TODO: it could be a unique_ptr
-template <typename T>
-using node_ptr = std::shared_ptr<node<T>>;
-
-template <typename T>
-struct node
+namespace tree
 {
-    T val;
-    node_ptr<T> left;
-    node_ptr<T> right;
-    node(T x, node_ptr<T> l, node_ptr<T> r) : val(std::move(x)), left(std::move(l)), right(std::move(r)) {}
-};
+    template <typename T>
+    struct node;
 
-// i -> 2i+1, 2i+2
-template <typename T>
-node_ptr<T> make_binary_tree(const std::initializer_list<std::optional<T>> &l, int i)
-{
-    if (i >= l.size())
-        return nullptr;
-    auto ith = *(l.begin() + i);
-    if (!ith)
-        return nullptr;
-    node_ptr<T> new_node = node_ptr<T>(new node<T>(*ith, make_binary_tree(l, 2 * i + 1), make_binary_tree(l, 2 * i + 2)));
-    return new_node;
-}
+    // TODO: it could be a unique_ptr
+    template <typename T>
+    using node_ptr = std::shared_ptr<node<T>>;
 
-template <typename T>
-std::vector<T> to_vector(node_ptr<T> root)
-{
-    std::vector<T> v;
-    std::queue<node_ptr<T>> Q;
-    Q.push(root);
-    while (!Q.empty())
+    template <typename T>
+    struct node
     {
-        if (auto n = Q.front())
-        {
-            v.push_back(n->val);
-            Q.push(n->left);
-            Q.push(n->right);
-        }
-        Q.pop();
-    }
-    return v;
-}
+        T val;
+        node_ptr<T> left;
+        node_ptr<T> right;
+        node(T x, node_ptr<T> l, node_ptr<T> r) : val(std::move(x)), left(std::move(l)), right(std::move(r)) {}
+    };
 
-template <typename T>
-std::optional<node_ptr<T>> find(const node_ptr<T> &root, const T &val)
-{
-    if (!root)
+    // i -> 2i+1, 2i+2
+    template <typename T>
+    node_ptr<T> make_binary_tree(const std::initializer_list<std::optional<T>> &l, int i)
+    {
+        if (i >= l.size())
+            return nullptr;
+        auto ith = *(l.begin() + i);
+        if (!ith)
+            return nullptr;
+        node_ptr<T> new_node = node_ptr<T>(new node<T>(*ith, make_binary_tree(l, 2 * i + 1), make_binary_tree(l, 2 * i + 2)));
+        return new_node;
+    }
+
+    template <typename T>
+    std::vector<T> to_vector(node_ptr<T> root)
+    {
+        std::vector<T> v;
+        std::queue<node_ptr<T>> Q;
+        Q.push(root);
+        while (!Q.empty())
+        {
+            if (auto n = Q.front())
+            {
+                v.push_back(n->val);
+                Q.push(n->left);
+                Q.push(n->right);
+            }
+            Q.pop();
+        }
+        return v;
+    }
+
+    template <typename T>
+    std::optional<node_ptr<T>> find(const node_ptr<T> &root, const T &val)
+    {
+        if (!root)
+            return std::nullopt;
+        if (root->val == val)
+            return root;
+        if (auto l = find(root->left, val))
+            return l;
+        if (auto r = find(root->right, val))
+            return r;
         return std::nullopt;
-    if (root->val == val)
-        return root;
-    if (auto l = find(root->left, val))
-        return l;
-    if (auto r = find(root->right, val))
-        return r;
-    return std::nullopt;
+    }
 }

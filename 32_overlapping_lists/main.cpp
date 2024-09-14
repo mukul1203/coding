@@ -1,4 +1,5 @@
 #include "linked_list/sll.hpp"
+using namespace sll;
 
 node_ptr<int> first_overlapping_node(node_ptr<int> head1, node_ptr<int> head2)
 {

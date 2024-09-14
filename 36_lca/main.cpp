@@ -1,4 +1,7 @@
 #include "binary_tree/binary_tree.hpp"
+
+using namespace tree;
+
 template <typename T>
 std::pair<bool, bool> lca(node_ptr<T> root, const node_ptr<T> &x, const node_ptr<T> &y, node_ptr<T> &ans)
 {

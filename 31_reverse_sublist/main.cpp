@@ -1,4 +1,5 @@
 #include "linked_list/sll.hpp"
+using namespace sll;
 
 // reverse a linked list starting from head and uptil n nodes, inclusive of head
 node_ptr<int> reverse(node_ptr<int> head, int n)

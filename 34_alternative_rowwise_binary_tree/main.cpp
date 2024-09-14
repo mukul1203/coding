@@ -2,6 +2,8 @@
 #include <vector>
 #include <deque>
 
+using namespace tree;
+
 template <typename T>
 std::vector<T> alternating(node_ptr<T> root)
 {

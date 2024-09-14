@@ -1,6 +1,9 @@
 #include "binary_tree/binary_tree.hpp"
 #include <vector>
 #include <stack>
+
+using namespace tree;
+
 template <typename T>
 std::vector<T> inorder(const node_ptr<T> &root)
 {

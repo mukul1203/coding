@@ -1,7 +1,12 @@
 #pragma once
 
-#include <memory>
-#include <vector>
+// REVIST: Using this header only for my own code to be included in multiple places
+// without including any other headers, because the including file includes this
+// within a namespace, and I want only my code to be within that namespace, not any
+// other headers. Users of this header file must include memory and vector headers to get
+// things working.
+// #include <memory>
+// #include <vector>
 
 template <typename T>
 struct node;

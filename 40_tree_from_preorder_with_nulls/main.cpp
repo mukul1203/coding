@@ -3,6 +3,8 @@
 #include <stack>
 #include <optional>
 
+using namespace tree;
+
 template <typename T>
 node_ptr<T> tree_from_pre(const std::vector<std::optional<T>> &pre)
 {
