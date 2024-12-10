@@ -7,7 +7,7 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 run:
-	$(RUSTC) $(FILE) -o $(OBJDIR)/$(BIN) && $(OBJDIR)/$(BIN)
+	$(RUSTC) -g $(FILE) -o $(OBJDIR)/$(BIN) && $(OBJDIR)/$(BIN)
 
 clean:
 	rm -f $(OBJDIR)/$(BIN)
