@@ -9,6 +9,9 @@
         ],
         "PYTHON Run": [
             "*.py"
+        ],
+        "RUST Build and Run": [
+            "*.rs"
         ]
     },
     "editor.formatOnSave": true,

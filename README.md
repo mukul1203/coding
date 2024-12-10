@@ -19,3 +19,9 @@ so that all your custom structs etc. along with your program are above the heade
 8. For more logging to debug test case failures, check out https://catch2-temp.readthedocs.io/en/latest/logging.html. Check 12_two_stock_sale folder for an example.
 
 A common Makefile is used for all the problems, as we know there will be a main.cpp file in every problem folder. When you trigger a build, it runs the build task from tasks.json, which is nothing but a make command with this Makefile. That builds all the dependencies that changes since last build, and puts the build output in separate build folder.
+
+
+Download rust:
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc

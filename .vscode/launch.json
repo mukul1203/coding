@@ -40,6 +40,22 @@
             ],
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "Rust: Debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/build/main",
+            "args": [],
+            "cwd": "${fileDirname}",
+            "stopOnEntry": false,
+            "sourceLanguages": [
+                "rust"
+            ],
+            "terminal": "integrated",
+            "env": {
+                "PATH": "${env:PATH}:/home/codespace/.cargo/bin"
+            },
         }
     ]
 }

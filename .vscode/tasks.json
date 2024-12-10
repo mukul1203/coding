@@ -42,6 +42,25 @@
                 "isDefault": "*.py"
             },
             "detail": "Build main.py using make and run it."
+        },
+        {
+            "type": "process",
+            "label": "RUST Build and Run",
+            "command": "make",
+            "args": [
+                "-f",
+                "../make_files/rust/Makefile",
+                "run"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": "*.rs"
+            },
+            "detail": "Compile and run a Rust file using make."
         }
     ],
     "version": "2.0.0"
